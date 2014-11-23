@@ -1,0 +1,39 @@
+﻿@model SoftServe.FootballManager.DAL.Models.Club
+
+@{
+    ViewBag.Title = "Browse Players";
+}
+
+<div>
+    <h3><em>@Model.Name</em> players</h3>
+
+    <table>
+        <tr>
+            <th><b>Name</b>
+            </th>
+            <th><b>Age</b>
+            </th>
+            <th><b>Position</b>
+            </th>
+            <th><b>Number</b>
+            </th>
+        </tr>
+        @foreach (var player in Model.Players)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(player.Name, "Details", "Players", new { id = player.Id }, null)
+                </td>
+                <td>
+                    @player.Age
+                </td>
+                <td>
+                    @player.MainPosition
+                </td>
+                <td>
+                    @player.Number
+                </td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,52 @@
+﻿@using System.Web.UI.WebControls
+@model IEnumerable<SoftServe.FootballManager.DAL.Models.Player>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+
+<table>
+    <tr>
+        <th>Name
+        </th>
+        <th>Age
+        </th>
+        <th>Position
+        </th>
+        <th>Number
+        </th>
+        <th>Club
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "Details", "Players", new { id = item.Id }, null)
+            </td>
+            <td>
+                @item.Age
+            </td>
+            <td>
+                @item.MainPosition
+            </td>
+            <td>
+                @item.Number
+            </td>
+            <td>
+                @item.Club.Name
+            </td>
+        </tr>
+    }
+</table>
+

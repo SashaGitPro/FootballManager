@@ -1,0 +1,52 @@
+@model SoftServe.FootballManager.DAL.Models.Club
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Name)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Country)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Country)
+    @Html.ValidationMessageFor(model => model.Country)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.President)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.President)
+    @Html.ValidationMessageFor(model => model.President)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Coach)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Coach)
+    @Html.ValidationMessageFor(model => model.Coach)
+</div>
+<div class="editor-label">
+    @Html.LabelFor(model => model.Tournaments, "Tournaments")
+</div>
+<div class="editor-field">
+    <ul>
+        @foreach (var tournament in ViewBag.PossibleTournaments)
+        {
+            <li>
+                <input type="checkbox"
+                       name="selectedTournaments"
+                       value="@tournament.Id"
+                       @(Html.Raw(tournament.Assigned ? "checked=\"checked\"" : "")) />
+                @tournament.Name
+            </li>
+        }
+    </ul>
+</div>

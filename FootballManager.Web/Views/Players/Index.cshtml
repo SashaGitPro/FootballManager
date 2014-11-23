@@ -1,0 +1,74 @@
+@model IEnumerable<SoftServe.FootballManager.DAL.Models.Player>
+
+@{
+    ViewBag.Title = "Players";
+}
+
+<h2>Поиск по номеру игрока:</h2>
+            <p>
+                @using (Html.BeginForm())
+                {    
+                    <p>
+                        Номер игрока: @Html.TextBox("SearchString")
+                        <br />
+                        <input type="submit" value="Search" class="btn-success"/>
+                    </p> 
+                }
+            </p>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Имя
+        </th>
+        <th>
+            Страна
+        </th>
+        <th>
+            Возраст
+        </th>
+        <th>
+            Позиция
+        </th>
+        <th>
+            Номер
+        </th>
+        <th>
+            Клуб
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id}) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.BornCountry
+        </td>
+        <td>
+			@item.Age
+        </td>
+        <td>
+			@item.MainPosition
+        </td>
+        <td>
+			@item.Number
+        </td>
+        <td>
+			@item.Club.Name
+        </td>
+    </tr>
+}
+
+</table>
+
+

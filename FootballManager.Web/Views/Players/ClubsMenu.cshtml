@@ -1,0 +1,12 @@
+﻿@model IEnumerable<SoftServe.FootballManager.DAL.Models.Club>
+
+<ul id="categories">
+    <h3>Clubs</h3>
+    @foreach (var club in Model)
+    {
+        <li>@Html.ActionLink(club.Name, 
+                "Browse", "Players",
+                new { Club = club.Name }, null)
+        </li>
+    }
+</ul>

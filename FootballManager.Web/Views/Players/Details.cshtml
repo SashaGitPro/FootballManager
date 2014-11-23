@@ -1,0 +1,30 @@
+@model SoftServe.FootballManager.DAL.Models.Player
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Name</h2>
+
+<fieldset>
+    <legend>Player</legend>
+
+    <div class="display-label"><b>Age</b></div>
+    <div class="display-field">@String.Format("{0}", Model.Age)</div>
+
+    <div class="display-label"><b>BornCountry</b></div>
+    <div class="display-field">@Model.BornCountry</div>
+
+    <div class="display-label"><b>MainPosition</b></div>
+    <div class="display-field">@Model.MainPosition</div>
+
+    <div class="display-label"><b>Number</b></div>
+    <div class="display-field">@Model.Number</div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

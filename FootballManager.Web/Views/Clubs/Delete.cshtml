@@ -1,0 +1,38 @@
+@model SoftServe.FootballManager.DAL.Models.Club
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Club</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Country</div>
+    <div class="display-field">@Model.Country</div>
+
+    <div class="display-label">Owner</div>
+    <div class="display-field">@Model.President</div>
+
+    <div class="display-label">Coach</div>
+    <div class="display-field">@Model.Coach</div>
+
+    <div class="display-label">Players</div>
+    <div class="display-field">@(Model.Players == null ? "None" : Model.Players.Count.ToString())</div>
+
+    <div class="display-label">Tournaments</div>
+    <div class="display-field">@(Model.Tournaments == null ? "None" : Model.Tournaments.Count.ToString())</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+

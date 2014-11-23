@@ -1,0 +1,9 @@
+1.Analyse of requirements.
+2.Choosing architecture.
+3.Choosing instruments.
+4.Diagrams of components, sequences, classes.
+5.Tests.
+
+
+User stories.
+Maintainability.
