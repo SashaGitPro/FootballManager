@@ -58,6 +58,7 @@ namespace SoftServe.FootballManager.DAL.Services
             return this.objectSet.Where(predicate);
         }
 
+      
         /// <summary>
         /// Adds specified element to the context.
         /// </summary>

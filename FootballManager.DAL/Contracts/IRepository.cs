@@ -33,6 +33,13 @@ namespace SoftServe.FootballManager.DAL.Contracts
         /// <returns>Elements specified by the condition.</returns>
         IQueryable<T> FindWhere(Expression<Func<T, bool>> predicate);
 
+        ///// <summary>
+        ///// Find by id
+        ///// </summary>
+        ///// <param name="id">Id to find</param>
+        ///// <returns>T instance with id</returns>
+        //T FindById(int id);
+
         /// <summary>
         /// Adds the T type element to the store.
         /// </summary>
