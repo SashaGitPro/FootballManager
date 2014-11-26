@@ -9,27 +9,25 @@
 <fieldset>
     <legend>Club</legend>
 
-    <div class="display-label">Name</div>
+    <div class="display-label"><b>Name</b></div>
     <div class="display-field">@Model.Name</div>
 
-    <div class="display-label">Country</div>
+    <div class="display-label"><b>Country</b></div>
     <div class="display-field">@Model.Country</div>
 
-    <div class="display-label">Owner</div>
+    <div class="display-label"><b>Owner</b></div>
     <div class="display-field">@Model.President</div>
 
-    <div class="display-label">Coach</div>
+    <div class="display-label"><b>Coach</b></div>
     <div class="display-field">@Model.Coach</div>
 
-    <div class="display-label">Players</div>
+    <div class="display-label"><b>Players</b></div>
     <div class="display-field">@(Model.Players == null ? "None" : Model.Players.Count.ToString())</div>
 
-    <div class="display-label">Tournaments</div>
+    <div class="display-label"><b>Tournaments</b></div>
     <div class="display-field">@(Model.Tournaments == null ? "None" : Model.Tournaments.Count.ToString())</div>
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
-
-

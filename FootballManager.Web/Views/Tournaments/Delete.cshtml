@@ -6,14 +6,14 @@
 
 <h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Are you sure you want to delete <em>@Model.Name</em>?</h3>
 <fieldset>
     <legend>Tournament</legend>
 
-    <div class="display-label">Name</div>
+    <div class="display-label"><b>Name</b></div>
     <div class="display-field">@Model.Name</div>
 
-    <div class="display-label">Clubs</div>
+    <div class="display-label"><b>Clubs</b></div>
     <div class="display-field">@(Model.Clubs == null ? "None" : Model.Clubs.Count.ToString())</div>
 </fieldset>
 @using (Html.BeginForm()) {

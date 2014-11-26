@@ -27,16 +27,33 @@ namespace SoftServe.FootballManager.Web.Controllers
         //
         // GET: /Players/
         [AllowAnonymous]
-        public ViewResult Index(string searchString)
+        public ViewResult Index(string club, string playerNumber)
         {
-            int age;
-            bool isNubmer = int.TryParse(searchString, out age);
-            List<Player> players = unitOfWork.Players.FindAll().Include(p => p.Club).ToList();
-            if (!String.IsNullOrEmpty(searchString) && isNubmer)
+            IEnumerable<Player> players;
+            int parsedNumber;
+            bool isNumber = int.TryParse(playerNumber, out parsedNumber);
+
+            if (string.IsNullOrEmpty(club) && string.IsNullOrEmpty(playerNumber))
             {
-                players = unitOfWork.Players.FindWhere(p => p.Number == age).ToList();
+                players = unitOfWork.Players.FindAll();
             }
-            return View(players);     
+            else if (string.IsNullOrEmpty(playerNumber) && !isNumber)
+            {
+                players = unitOfWork.Players.FindWhere(p => p.Club.Name == club);
+            }
+            else if (!string.IsNullOrEmpty(club) && !string.IsNullOrEmpty(playerNumber))
+            {
+                players = unitOfWork.Players.FindWhere(p => p.Club.Name == club)
+                    .Where(p => p.Number == parsedNumber);
+            }
+            else
+            {
+                players = unitOfWork.Players.FindWhere(p => p.Number == parsedNumber);
+            }
+
+            ViewBag.Clubs = new SelectList(unitOfWork.Clubs.FindAll(), "Name", "Name");
+
+            return View(players);
         }
 
         //
