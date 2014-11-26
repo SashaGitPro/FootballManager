@@ -10,22 +10,22 @@
 <fieldset>
     <legend>Player</legend>
 
-    <div class="display-label">Name</div>
+    <div class="display-label"><b>Name</b></div>
     <div class="display-field">@Model.Name</div>
 
-    <div class="display-label">Born</div>
+    <div class="display-label"><b>Age</b></div>
     <div class="display-field">@String.Format("{0:g}", Model.Age)</div>
 
-    <div class="display-label">BornCountry</div>
+    <div class="display-label"><b>BornCountry</b></div>
     <div class="display-field">@Model.BornCountry</div>
 
-    <div class="display-label">MainPosition</div>
+    <div class="display-label"><b>MainPosition</b></div>
     <div class="display-field">@Model.MainPosition</div>
 
-    <div class="display-label">Number</div>
+    <div class="display-label"><b>Number</b></div>
     <div class="display-field">@Model.Number</div>
 
-    <div class="display-label">FootballClubId</div>
+    <div class="display-label"><b>FootballClubId</b></div>
     <div class="display-field">@Model.ClubId</div>
 </fieldset>
 @using (Html.BeginForm()) {
