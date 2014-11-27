@@ -69,7 +69,9 @@ INSERT INTO dbo.Club (
 ) VALUES 
   (1, 'Read Madrid','Spain','Florentino Peres','Carlo Ancelotti'),
   (2, 'Barcelona','Spain','Joseph Bartomeu','Louis Enrique'),
-  (3,'Chelsea','England','Roman Abramovich','Jose Mourinho')
+  (3,'Chelsea','England','Roman Abramovich','Jose Mourinho'),
+  (4,'Bayern Munchen', 'Karl Hophner', 'Josep Guardiola'),
+  (5,'Milan AC','Silvio Berluskoni','Filippo Indzaggi')
 GO
 SET IDENTITY_INSERT dbo.Club OFF;
 
@@ -79,7 +81,9 @@ INSERT INTO dbo.Player (
 ) VALUES 
   (1, 'Cristiano Ronaldo', 'Portugal',27,'Forward', 7,1),
   (2, 'Lionel Messi', 'Argentina',26,'Forward', 10,2),
-  (3,'Eden Hazard', 'Belgium', 24,'Halfback',10,3)
+  (3,'Eden Hazard', 'Belgium', 24,'Halfback',10,3),
+  (4,'Tomas Muller', 'Germany', 22, 'Forward', 13, 4),
+  (5,'Rickardo Montolivo','Italy', 25, 'Midfielder', 18,5)
 GO
 SET IDENTITY_INSERT dbo.Player OFF;
 
@@ -88,15 +92,18 @@ INSERT INTO dbo.Tournament(
   [Id],[Name]
 ) VALUES 
  (1,'Liga BBVA'),
- (2,'APL')
+ (2,'APL'),
+ (3,'Bundesliga'),
+ (4,'Serie A')
 GO
 SET IDENTITY_INSERT dbo.Tournament OFF;
-
 
 INSERT INTO dbo.ClubToTournament(
 [ClubId],[TournamentId]
 ) VALUES
 (1,1),
 (2,1),
-(3,2)
+(3,2),
+(4,3),
+(5,4)
 GO
