@@ -55,6 +55,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Comparers\TournamentComparer.cs" />
+    <Compile Include="ObjectMothers\TournamentObjectMother.cs" />
     <Compile Include="WebTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

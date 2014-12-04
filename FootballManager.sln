@@ -20,7 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Курсак.docx = Курсак.docx
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballManager.Web.Test", "FootballManager.Web.Test\FootballManager.Web.Test.csproj", "{A3C16C87-5CAF-47BB-A7A8-63E122522B72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballManager.UnitTests", "FootballManager.Web.Test\FootballManager.UnitTests.csproj", "{A3C16C87-5CAF-47BB-A7A8-63E122522B72}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "FootballManager.Database", "FootballManager.Database\FootballManager.Database.sqlproj", "{39A1D838-7EA1-487E-9F60-12D3ECA31A0C}"
 EndProject
