@@ -17,11 +17,12 @@
     [TestClass]
     public class WebTests
     {
+
         /// <summary>
         /// Test search string.
         /// </summary>
         [TestMethod]
-        public void TestSearchString()
+        public void SearchString_Number7ToSearch_ReturnsPlayerWithNumber7()
         {
             Player p = new Player()
             {
@@ -61,6 +62,65 @@
             var actualTournaments = tournamentRepository.FindAll().ToList();
 
             CollectionAssert.AreEqual(expectedTournaments, actualTournaments, new TournamentComparer());
+        }
+
+        [TestMethod]
+        public void Add_NewTournament_TournamentAdded()
+        {
+            var repositoryMock = new Mock<IRepository<Tournament>>();
+            Tournament t = new Tournament { Id=1, Name="Tournament 1"};
+            List<Tournament> tournaments = new List<Tournament>();
+            repositoryMock.Setup(r => r.Add(It.IsAny<Tournament>()))
+                .Callback((Tournament tournament) =>
+            {
+                tournaments.Add(tournament);
+            });
+
+            IRepository<Tournament> tournamentRepository = repositoryMock.Object;
+            tournamentRepository.Add(t);
+
+            CollectionAssert.Contains(tournaments, t);
+        }
+
+        [TestMethod]
+        public void Remove_ExistingTournament_TournamentRemoved()
+        {
+            var repositoryMock = new Mock<IRepository<Tournament>>();
+            Tournament t = new Tournament { Id = 1, Name = "Tournament 1" };
+            List<Tournament> tournaments = new List<Tournament>();
+            repositoryMock.Setup(r => r.Remove(It.IsAny<Tournament>()))
+                .Callback((Tournament tournament) =>
+                {
+                    tournaments.Remove(tournament);
+                });
+
+            IRepository<Tournament> tournamentRepository = repositoryMock.Object;
+
+            tournaments.Add(t);
+            tournamentRepository.Remove(t);
+
+            CollectionAssert.DoesNotContain(tournaments, t);
+        }
+
+        [TestMethod]
+        public void Update_NewDataForExistingTournament_TournamentDataChanged()
+        {
+            var repositoryMock = new Mock<IRepository<Tournament>>();
+            Tournament oldTournament = new Tournament { Id = 1, Name = "Tournament 1" };
+            Tournament expectedTournament = new Tournament { Id = 2, Name = "Tournament" };
+            List<Tournament> tournaments = new List<Tournament>();
+            repositoryMock.Setup(r => r.Update(It.IsAny<Tournament>()))
+                .Callback((Tournament tournament) =>
+                {
+                    oldTournament.Id = tournament.Id;
+                    oldTournament.Name = tournament.Name;
+                });
+
+            IRepository<Tournament> tournamentRepository = repositoryMock.Object;
+
+            tournamentRepository.Update(expectedTournament);
+
+            Assert.AreEqual(oldTournament.Id, expectedTournament.Id);
         }
     }
 }
