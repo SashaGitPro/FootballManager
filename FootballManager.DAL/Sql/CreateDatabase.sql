@@ -70,8 +70,8 @@ INSERT INTO dbo.Club (
   (1, 'Read Madrid','Spain','Florentino Peres','Carlo Ancelotti'),
   (2, 'Barcelona','Spain','Joseph Bartomeu','Louis Enrique'),
   (3,'Chelsea','England','Roman Abramovich','Jose Mourinho'),
-  (4,'Bayern Munchen', 'Karl Hophner', 'Josep Guardiola'),
-  (5,'Milan AC','Silvio Berluskoni','Filippo Indzaggi')
+  (4,'Bayern Munchen','Germany','Karl Hophner', 'Josep Guardiola'),
+  (5,'Milan AC','Italy','Silvio Berluskoni','Filippo Indzaggi')
 GO
 SET IDENTITY_INSERT dbo.Club OFF;
 
