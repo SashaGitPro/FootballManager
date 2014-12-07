@@ -42,6 +42,9 @@
     @Html.ValidationMessageFor(model => model.Number)
 </div>
 
+<div class="editor-label">
+    @Html.LabelFor(model => model.Club)
+</div>
 <div class="editor-field">
     @Html.DropDownListFor(model => model.ClubId, ((IEnumerable<SoftServe.FootballManager.DAL.Models.Club>)ViewBag.PossibleClubs).Select(option => new SelectListItem
     {
